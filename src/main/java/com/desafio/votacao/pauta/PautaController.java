@@ -21,6 +21,7 @@ public class PautaController {
 
     @PostMapping("/pauta")
     public ResponseEntity<Pauta> save(@RequestBody Pauta pauta) {
+        System.out.println(pauta);
         return ResponseEntity.ok(pautaService.save(pauta));
     }
 }

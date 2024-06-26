@@ -11,25 +11,24 @@ public class SessaoController {
 
     private final SessaoService sessaoService;
     private final VotoService votoService;
+    private final SessaoMapper sessaoMapper;
 
-    public SessaoController(SessaoService sessaoService, VotoService votoService) {
+    public SessaoController(SessaoService sessaoService, VotoService votoService, SessaoMapper sessaoMapper) {
         this.sessaoService = sessaoService;
         this.votoService = votoService;
+        this.sessaoMapper = sessaoMapper;
     }
 
     @GetMapping("/sessao")
-    public ResponseEntity<Sessao> findById(Long id) {
-        return ResponseEntity.ok(sessaoService.findById(id));
+    public ResponseEntity<SessaoDTO> findById(@RequestParam  Long id) {
+        return ResponseEntity.ok(sessaoMapper.fromObject(sessaoService.findById(id)));
     }
 
     @PostMapping("/sessao")
-    public ResponseEntity<Sessao> save(Sessao sessao) {
-        return ResponseEntity.ok(sessaoService.save(sessao));
-    }
-
-    @PostMapping("/sessao/start")
-    public ResponseEntity<Sessao> startById(@RequestParam Long id, @RequestParam Integer duracao){
-        return ResponseEntity.ok(sessaoService.startById(id, duracao));
+    public ResponseEntity<SessaoDTO> save(@RequestBody SessaoDTO sessaoDTO) {
+        System.out.println(sessaoDTO);
+        Sessao sessao = sessaoMapper.fromDTO(sessaoDTO);
+        return ResponseEntity.ok(sessaoMapper.fromObject(sessaoService.save(sessao)));
     }
 
 }

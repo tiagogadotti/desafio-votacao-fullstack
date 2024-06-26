@@ -15,10 +15,13 @@ public class Sessao {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Pauta pauta;
 
+    @Column(nullable = true)
     private LocalDateTime inicio;
 
+    @Column(nullable = true)
     private Integer minutosDuracao;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "sessao")

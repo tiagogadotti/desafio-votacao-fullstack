@@ -16,14 +16,22 @@ public class VotoExceptionHandler {
 
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<ApiError> handleNoSuchElementException(NoSuchElementException ex, WebRequest request) {
-        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, "Voto não encontrado", ex.getMessage());
+        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(apiError);
     }
 
-    @ExceptionHandler( value = {IllegalArgumentException.class, OptimisticEntityLockException.class})
+    @ExceptionHandler( value = {IllegalArgumentException.class, OptimisticEntityLockException.class, RuntimeException.class})
     public ResponseEntity<ApiError> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
-        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, "Problema para salvar voto", ex.getMessage());
+        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST,  ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiError);
     }
+
+    @ExceptionHandler(VotoException.class)
+    public ResponseEntity<ApiError> handleIllegalArgumentException(VotoException ex, WebRequest request) {
+        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST,  ex.getMessage());
+        ex.printStackTrace();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiError);
+    }
+
 
 }

@@ -7,16 +7,14 @@ public class ApiError {
 
     private HttpStatus status;
     private String message;
-    private String errorDetail;
 
-    public ApiError(HttpStatus status, String message, String errorDetail) {
+    public ApiError(HttpStatus status, String message) {
         this.status = status;
         this.message = message;
-        this.errorDetail = errorDetail;
     }
 
-    public static ApiError of(HttpStatus status, String message, String errorDetail) {
-        return new ApiError(status, message, errorDetail);
+    public static ApiError of(HttpStatus status, String message) {
+        return new ApiError(status, message);
     }
 
     public HttpStatus getStatus() {
@@ -35,11 +33,4 @@ public class ApiError {
         this.message = message;
     }
 
-    public String getErrorDetail() {
-        return errorDetail;
-    }
-
-    public void setErrorDetail(String errorDetail) {
-        this.errorDetail = errorDetail;
-    }
 }

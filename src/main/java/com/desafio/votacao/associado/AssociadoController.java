@@ -1,13 +1,8 @@
 package com.desafio.votacao.associado;
 
-import com.desafio.votacao.api.ApiError;
-import org.apache.coyote.Response;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -20,7 +15,7 @@ public class AssociadoController {
 
     @GetMapping(value = "/associado", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Associado> getAssociado(@RequestParam Long id) {
-        return ResponseEntity.ok(associadoService.getAssociado(id));
+        return ResponseEntity.ok(associadoService.findById(id));
     }
 
     @PostMapping("/associado")

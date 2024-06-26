@@ -14,7 +14,7 @@ public class AssociadoService {
     }
 
 
-    public Associado getAssociado(Long id) throws NoSuchElementException {
+    public Associado findById(Long id) throws NoSuchElementException {
         return associadoRepository.findById(id).get();
     }
 

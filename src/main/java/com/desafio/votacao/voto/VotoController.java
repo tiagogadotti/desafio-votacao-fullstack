@@ -1,10 +1,7 @@
 package com.desafio.votacao.voto;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,24 +10,29 @@ import java.util.List;
 public class VotoController {
 
     private final VotoService votoService;
+    private final VotoMapper votoMapper;
 
-    public VotoController(VotoService votoService) {
+    public VotoController(VotoService votoService, VotoMapper votoMapper) {
         this.votoService = votoService;
+        this.votoMapper = votoMapper;
     }
 
     @PostMapping("/voto")
-    public ResponseEntity<Voto> save(Voto voto){
-        return ResponseEntity.ok(votoService.save(voto));
+    public ResponseEntity<VotoDTO> save(@RequestBody  VotoDTO votoDTO) {
+        Voto voto = votoService.save(votoMapper.fromDTO(votoDTO));
+        return ResponseEntity.ok(votoMapper.fromObject(voto));
     }
 
     @GetMapping("/voto/sessao")
-    public ResponseEntity<List<Voto>> findAllBySessaoId(Long id){
-        return ResponseEntity.ok(votoService.findAllBySessaoId(id));
+    public ResponseEntity<List<VotoDTO>> findAllBySessaoId(@RequestParam  Long id) {
+        List<VotoDTO> votosDTO = votoService.findAllBySessaoId(id).stream().map(votoMapper::fromObject).toList();
+        return ResponseEntity.ok(votosDTO);
     }
 
     @GetMapping("/voto/associado")
-    public ResponseEntity<List<Voto>> findAllByAssociadoId(Long id){
-        return ResponseEntity.ok(votoService.findAllByAssociadoId(id));
+    public ResponseEntity<List<VotoDTO>> findAllByAssociadoId(@RequestParam  Long id) {
+        List<VotoDTO> votosDTO = votoService.findAllByAssociadoId(id).stream().map(votoMapper::fromObject).toList();
+        return ResponseEntity.ok(votosDTO);
     }
 
 
