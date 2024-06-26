@@ -18,24 +18,12 @@ public class SessaoService {
     }
 
     public Sessao save(Sessao sessao) {
+        if (sessao.getMinutosDuracao() == null){
+            sessao.setMinutosDuracao(1);
+        }
+        if(sessao.getInicio() == null){
+            sessao.setInicio(LocalDateTime.now());
+        }
         return sessaoRepository.save(sessao);
     }
-
-    public Sessao startById(Long id, Integer duracao){
-        if (duracao == null){
-            return startById(id);
-        }
-        Sessao sessao = sessaoRepository.findById(id).get();
-        sessao.setInicio(LocalDateTime.now());
-        sessao.setMinutosDuracao(duracao);
-        return sessao;
-    }
-
-    public Sessao startById(Long id){
-        Sessao sessao = sessaoRepository.findById(id).get();
-        sessao.setInicio(LocalDateTime.now());
-        sessao.setMinutosDuracao(1);
-        return sessao;
-    }
-
 }
