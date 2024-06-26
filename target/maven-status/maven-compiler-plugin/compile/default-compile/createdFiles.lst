@@ -1,0 +1,11 @@
+com/desafio/votacao/VotacaoApplication.class
+com/desafio/votacao/associado/CPF.class
+com/desafio/votacao/voto/VotoOpcao.class
+com/desafio/votacao/votacao/VotacaoRepository.class
+com/desafio/votacao/pauta/Pauta.class
+com/desafio/votacao/voto/VotoRepository.class
+com/desafio/votacao/pauta/PautaRepository.class
+com/desafio/votacao/associado/AssociadoRepository.class
+com/desafio/votacao/associado/Associado.class
+com/desafio/votacao/votacao/Votacao.class
+com/desafio/votacao/voto/Voto.class

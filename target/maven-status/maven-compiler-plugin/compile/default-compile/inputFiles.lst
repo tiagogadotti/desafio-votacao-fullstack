@@ -1,0 +1,11 @@
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/VotacaoApplication.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/associado/Associado.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/associado/AssociadoRepository.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/associado/CPF.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/pauta/Pauta.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/pauta/PautaRepository.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/votacao/Votacao.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/votacao/VotacaoRepository.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/voto/Voto.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/voto/VotoOpcao.java
+/home/tiago/IdeaProjects/desafio-votacao/src/main/java/com/desafio/votacao/voto/VotoRepository.java
