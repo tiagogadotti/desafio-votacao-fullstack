@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Votar</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Associado</mat-label>
+      <mat-select formControlName="associadoId" required>
+        <mat-option *ngFor="let associado of associados" [value]="associado.id">{{ associado.nome }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-radio-group formControlName="voto">
+      <mat-radio-button value="SIM">Sim</mat-radio-button>
+      <mat-radio-button value="NAO">Não</mat-radio-button>
+    </mat-radio-group>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button (click)="onVote()" [disabled]="form.invalid">Votar</button>
+</div>
