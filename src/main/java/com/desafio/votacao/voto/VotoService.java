@@ -53,5 +53,9 @@ public class VotoService {
         if (votoRepository.existsVotoByAssociadoIdAndSessaoId(associado.getId(), sessao.getId())){
             throw new VotoException("Associado ja votou para esta sessão");
         }
+        if(!associado.isAptoParaVotar()){
+            throw new VotoException("Associado não é apto para votar");
+        }
+
     }
 }

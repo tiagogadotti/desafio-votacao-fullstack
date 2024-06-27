@@ -3,6 +3,8 @@ package com.desafio.votacao.pauta;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -27,11 +29,27 @@ public class PautaController {
 
     @GetMapping("/pautas/info")
     public ResponseEntity<List<PautaInfoDTO>> findAllInfo(){
-        return ResponseEntity.ok(pautaService.findAllInfo());
+        List<PautaInfoDTO> pautaInfoDTOS = pautaService.findAllInfo()
+                .stream()
+                .sorted(Comparator
+                        .comparingInt((PautaInfoDTO pauta) -> getStatus(pauta, LocalDateTime.now()))
+                        .thenComparing(PautaInfoDTO::getPautaTitulo))
+                .toList();
+
+        return ResponseEntity.ok(pautaInfoDTOS);
+    }
+
+    private int getStatus(PautaInfoDTO pauta, LocalDateTime now) {
+        if (pauta.getSessaoInicio() == null) {
+            return 2; // Pendente
+        } else if (pauta.getSessaoInicio().plusMinutes(pauta.getSessaoDuracao()).isBefore(now)) {
+            return 3; // Encerrada
+        } else {
+            return 1; // Em andamento
+        }
     }
     @PostMapping("/pauta")
     public ResponseEntity<Pauta> save(@RequestBody Pauta pauta) {
-        System.out.println(pauta);
         return ResponseEntity.ok(pautaService.save(pauta));
     }
 }

@@ -1,5 +1,6 @@
 package com.desafio.votacao.voto;
 
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,12 @@ public class VotoController {
 
     private final VotoService votoService;
     private final VotoMapper votoMapper;
+    private final DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration;
 
-    public VotoController(VotoService votoService, VotoMapper votoMapper) {
+    public VotoController(VotoService votoService, VotoMapper votoMapper, DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration) {
         this.votoService = votoService;
         this.votoMapper = votoMapper;
+        this.dataSourceTransactionManagerAutoConfiguration = dataSourceTransactionManagerAutoConfiguration;
     }
 
     @PostMapping("/voto")

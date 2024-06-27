@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 public class SessaoDTO {
 
     private Long id;
-    @JsonProperty(value = "pauta_id", required = true)
     private Long pautaId;
     private LocalDateTime inicio;
     private Integer duracao;

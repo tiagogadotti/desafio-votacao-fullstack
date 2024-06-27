@@ -3,9 +3,7 @@ package com.desafio.votacao.voto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class VotoDTO {
-    @JsonProperty("associado_id")
     private Long associadoId;
-    @JsonProperty("sessao_id")
     private Long sessaoId;
     private String opcao;
 

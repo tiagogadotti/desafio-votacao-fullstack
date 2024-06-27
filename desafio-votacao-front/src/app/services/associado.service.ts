@@ -23,11 +23,11 @@ export class AssociadoService {
   constructor(private httpClient: HttpClient) { }
 
   getAssociados(): Observable<any> {
-    return this.httpClient.get(BASE_URL + 'associados');
+    return this.httpClient.get(`${BASE_URL}/associados`);
   }
 
   addAssociado(associado: Associado): Observable<any> {
-    return this.httpClient.post(BASE_URL + 'associado', associado);
+    return this.httpClient.post( `${BASE_URL}/associado`, associado);
   }
 
   generateCPF(): string {
