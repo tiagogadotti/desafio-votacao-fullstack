@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Adicionar Nova Pauta</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Título</mat-label>
+    <input matInput [(ngModel)]="novaPauta.titulo" maxlength="256">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput [(ngModel)]="novaPauta.descricao" rows="4"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSave()">Salvar</button>
+</mat-dialog-actions>

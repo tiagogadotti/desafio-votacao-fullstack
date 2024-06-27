@@ -1,1 +1,12 @@
-<p>associados works!</p>
+<div>
+  <h2>Associados</h2>
+  <button mat-raised-button color="primary" (click)="openAddAssociadoModal()">Novo +</button>
+  <div class="associados-list">
+    <div class="associado" *ngFor="let associado of associados">
+      <div class="associado-info"><strong>ID:</strong> {{ associado.id }}</div>
+      <div class="associado-info"><strong>Nome:</strong> {{ associado.nome }}</div>
+      <div class="associado-info"><strong>CPF:</strong> {{ associado.cpf }}</div>
+      <div class="associado-info"><strong>Apto para Votar:</strong> {{ associado.aptoParaVotar ? 'Sim' : 'Não' }}</div>
+    </div>
+  </div>
+</div>

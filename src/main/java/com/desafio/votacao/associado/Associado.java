@@ -14,8 +14,9 @@ public class Associado {
 
     private String nome;
 
-    @Embedded
-    private CPF cpf;
+    private String cpf;
+
+    private boolean aptoParaVotar;
 
     public Long getId() {
         return id;
@@ -33,12 +34,20 @@ public class Associado {
         this.nome = nome;
     }
 
-    public CPF getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(CPF cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public boolean isAptoParaVotar() {
+        return aptoParaVotar;
+    }
+
+    public void setAptoParaVotar(boolean aptoParaVotar) {
+        this.aptoParaVotar = aptoParaVotar;
     }
 
     @Override

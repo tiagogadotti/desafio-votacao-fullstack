@@ -4,6 +4,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1")
 public class AssociadoController {
@@ -13,14 +15,20 @@ public class AssociadoController {
         this.associadoService = associadoService;
     }
 
-    @GetMapping(value = "/associado", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/associado")
     public ResponseEntity<Associado> getAssociado(@RequestParam Long id) {
         return ResponseEntity.ok(associadoService.findById(id));
     }
 
     @PostMapping("/associado")
     public ResponseEntity<Associado> save(@RequestBody Associado associado) {
+        associado.setAptoParaVotar(Math.random() < 0.5);
         return ResponseEntity.ok(associadoService.save(associado));
+    }
+
+    @GetMapping("/associados")
+    public ResponseEntity<List<Associado>> findAll() {
+        return ResponseEntity.ok(associadoService.findAll());
     }
 }
 

@@ -1,1 +1,7 @@
-<p>menu works!</p>
+<mat-toolbar color="primary">
+  <span>Aplicativo de Votação</span>
+  <span class="example-spacer"></span>
+  <button mat-button [routerLink]="['/associados']">Associados</button>
+  <button mat-button [routerLink]="['/pautas']">Pautas</button>
+</mat-toolbar>
+<router-outlet></router-outlet>

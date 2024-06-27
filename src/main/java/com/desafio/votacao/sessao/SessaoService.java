@@ -3,6 +3,8 @@ package com.desafio.votacao.sessao;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class SessaoService {
@@ -15,6 +17,18 @@ public class SessaoService {
 
     public Sessao findById(Long id) {
         return sessaoRepository.findById(id).get();
+    }
+
+    public List<Sessao> findAll() {
+        return sessaoRepository.findAll();
+    }
+
+    public Sessao findByPautaId(Long id) {
+        try{
+            return sessaoRepository.findByPautaId(id).get();
+        }catch (NoSuchElementException e){
+            throw new SessaoException("Pauta não encontrada", e);
+        }
     }
 
     public Sessao save(Sessao sessao) {

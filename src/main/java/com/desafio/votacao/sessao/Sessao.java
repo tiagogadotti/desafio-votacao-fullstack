@@ -14,7 +14,7 @@ public class Sessao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(nullable = false)
     private Pauta pauta;
 

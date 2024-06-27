@@ -1,7 +1,9 @@
 package com.desafio.votacao.associado;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -20,5 +22,9 @@ public class AssociadoService {
 
     public Associado save(Associado associado) {
         return associadoRepository.save(associado);
+    }
+
+    public List<Associado> findAll() {
+        return associadoRepository.findAll();
     }
 }

@@ -5,6 +5,8 @@ import com.desafio.votacao.voto.VotoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1")
 public class SessaoController {
@@ -22,6 +24,16 @@ public class SessaoController {
     @GetMapping("/sessao")
     public ResponseEntity<SessaoDTO> findById(@RequestParam  Long id) {
         return ResponseEntity.ok(sessaoMapper.fromObject(sessaoService.findById(id)));
+    }
+    @GetMapping("/sessoes")
+    public ResponseEntity<List<SessaoDTO>> findAll() {
+        List<SessaoDTO> sessoes = sessaoService.findAll().stream().map(sessaoMapper::fromObject).toList();
+        return ResponseEntity.ok(sessoes);
+    }
+
+    @GetMapping("/sessao/pauta/{id}")
+    public ResponseEntity<SessaoDTO> findByPautaId(@RequestParam Long id) {
+        return ResponseEntity.ok(sessaoMapper.fromObject(sessaoService.findByPautaId(id)));
     }
 
     @PostMapping("/sessao")

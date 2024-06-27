@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Novo Associado</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="associado.nome">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>CPF</mat-label>
+    <input matInput [(ngModel)]="associado.cpf">
+  </mat-form-field>
+  <button mat-button (click)="generateCPF()">Gerar CPF</button>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="associado" cdkFocusInitial>Salvar</button>
+</div>
