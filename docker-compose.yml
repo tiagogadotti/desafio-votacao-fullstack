@@ -1,17 +1,15 @@
 services:
-  mysql:
-    image: mysql:latest
-    container_name: mysql_sb
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: votacao
+  front:
+    build:
+      context: ./desafio-votacao-front
+      dockerfile: Dockerfile
+    container_name: angular_app
     ports:
-      - "3307:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
+      - "80:80"
+      - "4200:4200"
     restart: no
 
-  app:
+  back:
     build: .
     container_name: spring_app
     environment:
@@ -24,5 +22,18 @@ services:
       - mysql
     restart: no
 
+  mysql:
+    image: mysql:latest
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: votacao
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: no
+
 volumes:
   mysql_data:
+

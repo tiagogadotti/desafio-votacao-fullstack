@@ -102,7 +102,7 @@ export class PautasComponent implements OnInit {
     this.pautaService.getPautas().subscribe({
       next: pautas => {
         this.pautas = pautas;
-        console.log("Carregou pautas: " +this.pautas);
+        console.log("Carregou pautas: " +JSON.stringify(this.pautas));
       },
       error: error => {
         console.log("Erro ao buscar pautas: " + JSON.stringify(error));

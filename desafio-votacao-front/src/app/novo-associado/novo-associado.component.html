@@ -9,8 +9,10 @@
     <input matInput [(ngModel)]="associado.cpf">
   </mat-form-field>
   <button mat-button (click)="generateCPF()">Gerar CPF</button>
+  <button mat-button (click)="validarCPF()">Validar CPF</button>
+  <div *ngIf="mensagemValidacaoCPF" [textContent]="mensagemValidacaoCPF"></div>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="associado" cdkFocusInitial>Salvar</button>
+  <button mat-button [mat-dialog-close]="associado">Salvar</button>
 </div>

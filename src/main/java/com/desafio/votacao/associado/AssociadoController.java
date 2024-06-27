@@ -22,7 +22,6 @@ public class AssociadoController {
 
     @PostMapping("/associado")
     public ResponseEntity<Associado> save(@RequestBody Associado associado) {
-        associado.setAptoParaVotar(Math.random() < 0.5);
         return ResponseEntity.ok(associadoService.save(associado));
     }
 

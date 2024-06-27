@@ -31,7 +31,6 @@ export class AssociadoService {
   }
 
   generateCPF(): string {
-    // Implementação simples de geração de CPF. Para uma versão completa, considere usar uma biblioteca.
     const rand = (n: number) => Math.round(Math.random() * n);
     const mod = (base: number, mod: number) => Math.round(base - (Math.floor(base / mod) * mod));
     let cpf = '';
