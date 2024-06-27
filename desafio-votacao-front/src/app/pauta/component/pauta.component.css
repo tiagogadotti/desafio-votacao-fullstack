@@ -1,0 +1,32 @@
+.mat-card {
+  border: 1px solid black; /* Adiciona um contorno preto */
+  margin-bottom: 20px; /* Adiciona espaço abaixo de cada card */
+  margin: 10px;
+}
+.pauta-title {
+  margin-left: 16px; /* Ajusta a margem esquerda do título */
+}
+
+.pauta-descricao {
+  word-wrap: break-word; /* Quebra de linha para descrições longas */
+}
+
+.pauta-status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+}
+
+.pauta-status.Encerrada {
+  background-color: red;
+}
+
+.pauta-status.Pendente {
+  background-color: yellow;
+  color: black;
+}
+
+.pauta-status.EmAndamento {
+  background-color: green;
+}

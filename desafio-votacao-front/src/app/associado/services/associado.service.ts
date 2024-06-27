@@ -1,14 +1,10 @@
 import {Component, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {BASE_URL} from "../config/constants";
+import {BASE_URL} from "../../config/constants";
 import {Observable} from "rxjs";
+import {Associado} from "../Associado";
 
-export interface Associado {
-  id: number;
-  nome: string;
-  cpf: string;
-  aptoParaVotar: boolean;
-}
+
 
 @Injectable({
   providedIn: 'root'

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NovoAssociadoComponent } from './novo-associado.component';
+import { PautaComponent } from './pauta.component';
 
-describe('NovoAssociadoComponent', () => {
-  let component: NovoAssociadoComponent;
-  let fixture: ComponentFixture<NovoAssociadoComponent>;
+describe('PautasComponent', () => {
+  let component: PautaComponent;
+  let fixture: ComponentFixture<PautaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NovoAssociadoComponent]
+      imports: [PautaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NovoAssociadoComponent);
+    fixture = TestBed.createComponent(PautaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

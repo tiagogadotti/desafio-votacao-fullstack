@@ -6,12 +6,12 @@ import {
   MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
-import {AssociadoService} from "../services/associado.service";
+import {AssociadoService} from "../../services/associado.service";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
-import {CpfService} from "../services/cpf.service";
+import {CpfService} from "../../services/cpf.service";
 import {NgIf} from "@angular/common";
 
 @Component({
@@ -29,15 +29,15 @@ import {NgIf} from "@angular/common";
     MatLabel,
     NgIf
   ],
-  templateUrl: './novo-associado.component.html',
-  styleUrl: './novo-associado.component.css'
+  templateUrl: './associado-modal.component.html',
+  styleUrl: './associado-modal.component.css'
 })
-export class NovoAssociadoComponent {
+export class AssociadoModalComponent {
   associado = { nome: '', cpf: '', aptoParaVotar: true };
   mensagemValidacaoCPF: string = '';
 
   constructor(
-    public dialogRef: MatDialogRef<NovoAssociadoComponent>,
+    public dialogRef: MatDialogRef<AssociadoModalComponent>,
     private associadoService: AssociadoService,
     private cpfService: CpfService
   ) {}

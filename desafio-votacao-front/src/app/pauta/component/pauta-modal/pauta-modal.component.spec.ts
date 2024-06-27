@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddPautaModalComponent } from './add-pauta-modal.component';
+import { PautaModalComponent } from './pauta-modal.component';
 
 describe('AddPautaModalComponent', () => {
-  let component: AddPautaModalComponent;
-  let fixture: ComponentFixture<AddPautaModalComponent>;
+  let component: PautaModalComponent;
+  let fixture: ComponentFixture<PautaModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddPautaModalComponent]
+      imports: [PautaModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddPautaModalComponent);
+    fixture = TestBed.createComponent(PautaModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

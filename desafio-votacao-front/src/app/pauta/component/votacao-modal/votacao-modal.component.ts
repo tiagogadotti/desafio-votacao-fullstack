@@ -6,15 +6,15 @@ import {
   MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
-import {PautaInfo} from "../services/pauta.service";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {AssociadoService} from "../services/associado.service";
-import {VotoDTO, VotoService} from "../services/voto.service";
+import {AssociadoService} from "../../../associado/services/associado.service";
+import {VotoService} from "../../services/voto.service";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
 import {NgForOf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
+import {VotoDTO} from "../../VotoDTO";
 
 @Component({
   selector: 'app-votacao-modal',

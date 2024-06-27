@@ -1,18 +1,21 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { MatCard, MatCardActions, MatCardContent, MatCardTitle } from "@angular/material/card";
-import { NgForOf, NgIf } from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import { MatButton } from "@angular/material/button";
-import { AddPautaModalComponent } from "../add-pauta-modal/add-pauta-modal.component";
-import { SessaoDTO, SessaoService } from "../services/sessao.service";
-import { SessaoModal} from "../sessao-modal/sessao-modal-component.component";
-import { PautaInfo, PautaService } from "../services/pauta.service";
-import {VotacaoModalComponent} from "../votacao-modal/votacao-modal.component";
+import { PautaModalComponent } from "./pauta-modal/pauta-modal.component";
+import { SessaoService } from "../services/sessao.service";
+import { SessaoModal} from "./sessao-modal/sessao-modal-component.component";
+import { PautaService } from "../services/pauta.service";
+import {VotacaoModalComponent} from "./votacao-modal/votacao-modal.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {PautaInfo} from "../PautaInfo";
+import {SessaoDTO} from "../SessaoDTO";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-pautas',
-  templateUrl: './pautas.component.html',
+  templateUrl: './pauta.component.html',
   standalone: true,
   imports: [
     MatCardContent,
@@ -21,21 +24,21 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     MatCardActions,
     NgForOf,
     MatButton,
-    NgIf
+    NgIf,
+    NgClass,
+    MatIcon
   ],
-  styleUrls: ['./pautas.component.css']
+  styleUrls: ['./pauta.component.css']
 })
-export class PautasComponent implements OnInit {
+export class PautaComponent implements OnInit {
   pautas: PautaInfo[] = [];
   now: Date = new Date();
-  errorMessage: string = '';
 
   constructor(
     public dialog: MatDialog,
     private pautaService: PautaService,
     private sessaoService: SessaoService,
     private snackBar: MatSnackBar
-
   ) { }
 
   ngOnInit(): void {
@@ -81,7 +84,7 @@ export class PautasComponent implements OnInit {
   }
 
   openAddPautaModal(): void {
-    const dialogRef = this.dialog.open(AddPautaModalComponent, {
+    const dialogRef = this.dialog.open(PautaModalComponent, {
       width: '300px'
     });
 
@@ -121,11 +124,15 @@ export class PautasComponent implements OnInit {
       if (result && result.sucesso === true) {
           window.location.reload();
       } else if (result && result.sucesso === false) {
-        //this.errorMessage = result.mensagemErro;
         this.snackBar.open(result.mensagemErro, 'Fechar', {
           duration: 5000
         })
       }
     });
+  }
+
+  getStatusClass(pauta: any): string {
+    const status = this.getSessaoStatus(pauta);
+    return status === 'Em Andamento' ? 'EmAndamento' : status;
   }
 }

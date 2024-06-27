@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import {AssociadosComponent} from "./associados/associados.component";
-import {PautasComponent} from "./pautas/pautas.component";
+import {AssociadoComponent} from "./associado/component/associado.component";
+import {PautaComponent} from "./pauta/component/pauta.component";
 
 export const routes: Routes = [
-  { path: 'associados', component: AssociadosComponent },
-  { path: 'pautas', component: PautasComponent },
+  { path: 'associados', component: AssociadoComponent },
+  { path: 'pautas', component: PautaComponent },
   { path: '', redirectTo: '/pautas', pathMatch: 'full' }
 ];

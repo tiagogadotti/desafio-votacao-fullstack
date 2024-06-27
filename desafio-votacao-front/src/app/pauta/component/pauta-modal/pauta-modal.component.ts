@@ -4,7 +4,7 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatInput} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
-import {PautaDTO} from "../services/pauta.service";
+import {PautaDTO} from "../../PautaDTO";
 
 @Component({
   selector: 'app-add-pauta-modal',
@@ -18,13 +18,13 @@ import {PautaDTO} from "../services/pauta.service";
     MatButton,
     MatLabel
   ],
-  templateUrl: './add-pauta-modal.component.html',
-  styleUrl: './add-pauta-modal.component.css'
+  templateUrl: './pauta-modal.component.html',
+  styleUrl: './pauta-modal.component.css'
 })
-export class AddPautaModalComponent {
+export class PautaModalComponent {
   novaPauta : PautaDTO = {id: null, titulo: '', descricao: ''};
 
-  constructor(public dialogRef: MatDialogRef<AddPautaModalComponent>) { }
+  constructor(public dialogRef: MatDialogRef<PautaModalComponent>) { }
 
   onCancel(): void {
     this.dialogRef.close();

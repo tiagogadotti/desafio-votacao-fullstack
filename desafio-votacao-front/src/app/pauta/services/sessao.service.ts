@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {BASE_URL} from "../config/constants";
+import {BASE_URL} from "../../config/constants";
+import {SessaoDTO} from "../SessaoDTO";
 
-export interface SessaoDTO{
-  id: number | null,
-  pautaId: number,
-  inicio: Date | null;
-  duracao: number;
-}
+
 
 @Injectable({
   providedIn: 'root'

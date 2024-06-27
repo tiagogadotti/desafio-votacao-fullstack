@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PautasComponent } from './pautas.component';
+import { AssociadoModalComponent } from './associado-modal.component';
 
-describe('PautasComponent', () => {
-  let component: PautasComponent;
-  let fixture: ComponentFixture<PautasComponent>;
+describe('NovoAssociadoComponent', () => {
+  let component: AssociadoModalComponent;
+  let fixture: ComponentFixture<AssociadoModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PautasComponent]
+      imports: [AssociadoModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PautasComponent);
+    fixture = TestBed.createComponent(AssociadoModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -26,6 +26,9 @@ public class AssociadoService {
     public Associado save(Associado associado) {
         boolean aptoParaVotar = cpfService.ableToVote(associado.getCpf()).get("status").equals("ABLE_TO_VOTE");
         associado.setAptoParaVotar(aptoParaVotar);
+        if (!cpfService.validar(associado.getCpf())){
+            throw new IllegalArgumentException("CPF inválido");
+        }
         return associadoRepository.save(associado);
     }
 

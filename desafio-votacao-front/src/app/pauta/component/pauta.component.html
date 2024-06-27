@@ -1,0 +1,27 @@
+<div>
+  <h3>Pautas</h3>
+  <button mat-raised-button color="primary" (click)="openAddPautaModal()">Nova +</button>
+  <br><br>
+  <mat-card class="mat-card" *ngFor="let pauta of pautas">
+    <br>
+    <mat-card-title class="pauta-title">{{ pauta.pautaTitulo }}</mat-card-title>
+    <br>
+    <mat-card-content>
+      <p class="pauta-descricao"><span class="fw-bold">Descrição:</span> {{ pauta.pautaDescricao }}</p>
+      <p class="pauta-status" [ngClass]="getStatusClass(pauta)">
+        <span class="fw-bold">Status:</span> {{ getSessaoStatus(pauta) }}
+      </p>
+      <p *ngIf="pauta.sessaoTotalVotosSim != null || pauta.sessaoTotalVotosNao != null">
+        <span class="fw-bold">Votos Sim: </span>{{ pauta.sessaoTotalVotosSim }} | <span class="fw-bold">Votos Não: </span>{{ pauta.sessaoTotalVotosNao }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button *ngIf="getSessaoStatus(pauta) === 'Pendente'" (click)="iniciarSessao(pauta.pautaId)">
+        <mat-icon>play_arrow</mat-icon> Iniciar Sessão
+      </button>
+      <button mat-button *ngIf="getSessaoStatus(pauta) === 'Em Andamento'" (click)="votar(pauta)">
+        <mat-icon>how_to_vote</mat-icon> Votar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

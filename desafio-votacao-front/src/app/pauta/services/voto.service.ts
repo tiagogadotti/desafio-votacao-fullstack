@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {BASE_URL} from "../config/constants";
+import {BASE_URL} from "../../config/constants";
+import {VotoDTO} from "../VotoDTO";
 
-export interface VotoDTO {
-  associadoId: number;
-  sessaoId: number;
-  opcao: Opcao;
-}
 
-enum Opcao{
-  SIM = "SIM",NAO = "NÃO"
-}
+
+
 
 
 @Injectable({

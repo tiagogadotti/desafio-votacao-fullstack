@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Associado, AssociadoService} from "../services/associado.service";
+import {AssociadoService} from "../services/associado.service";
 import {MatDialog} from "@angular/material/dialog";
 import {NgForOf} from "@angular/common";
-import {NovoAssociadoComponent} from "../novo-associado/novo-associado.component";
+import {AssociadoModalComponent} from "./associado-modal/associado-modal.component";
 import {MatButton} from "@angular/material/button";
+import {Associado} from "../Associado";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-associados',
@@ -12,14 +14,18 @@ import {MatButton} from "@angular/material/button";
     NgForOf,
     MatButton
   ],
-  templateUrl: './associados.component.html',
-  styleUrl: './associados.component.css'
+  templateUrl: './associado.component.html',
+  styleUrl: './associado.component.css'
 })
-export class AssociadosComponent implements OnInit {
+export class AssociadoComponent implements OnInit {
 
   associados: Associado[] = [];
+  mensagemErro: string = '';
 
-  constructor(private associadoService: AssociadoService, public dialog: MatDialog) { }
+  constructor(private associadoService: AssociadoService,
+              public dialog: MatDialog,
+              private snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     this.associadoService.getAssociados().subscribe({
@@ -33,7 +39,7 @@ export class AssociadosComponent implements OnInit {
   }
 
   openAddAssociadoModal(): void {
-    const dialogRef = this.dialog.open(NovoAssociadoComponent, {
+    const dialogRef = this.dialog.open(AssociadoModalComponent, {
       width: '250px'
     });
 
@@ -45,6 +51,7 @@ export class AssociadosComponent implements OnInit {
           },
           error: (erro) => {
             console.error('Erro ao adicionar associado:', JSON.stringify(erro));
+            this.snackBar.open(erro.error.message, 'Fechar', {duration: 5000});
           }
         });
       }

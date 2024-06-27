@@ -7,10 +7,10 @@ import {
   MatDialogContent
 } from '@angular/material/dialog';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {SessaoDTO} from "../services/sessao.service";
 import {MatFormField} from "@angular/material/form-field";
 import {MatButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
+import {SessaoDTO} from "../../SessaoDTO";
 
 @Component({
   standalone: true,
