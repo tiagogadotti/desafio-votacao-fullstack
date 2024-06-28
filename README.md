@@ -1,3 +1,71 @@
+### README
+# Desafio Votação
+
+Este projeto é uma aplicação de votação com front-end em Angular, back-end em Spring Boot e banco de dados MySQL, orquestrados pelo Docker Compose.
+
+## Dependências
+
+### Windows
+
+1. **Git**
+   - Baixe e instale o [Git para Windows](https://gitforwindows.org/).
+   - Após a instalação, verifique a instalação abrindo um terminal e digitando `git --version`.
+
+2. **Docker**
+   - Baixe e instale o [Docker Desktop para Windows](https://www.docker.com/products/docker-desktop).
+   - Após a instalação, verifique a instalação abrindo um terminal e digitando `docker --version` e `docker-compose --version`.
+
+### Linux
+
+1. **Git**
+   - Para distribuições baseadas em Debian/Ubuntu, use:
+     ```sh
+     sudo apt update
+     sudo apt install git
+     ```
+   - Para distribuições baseadas em Red Hat/Fedora, use:
+     ```sh
+     sudo dnf install git
+     ```
+   - Após a instalação, verifique a instalação abrindo um terminal e digitando `git --version`.
+
+2. **Docker**
+   - Siga as instruções no [site oficial do Docker](https://docs.docker.com/engine/install/) para a sua distribuição.
+   - Após a instalação, verifique a instalação abrindo um terminal e digitando `docker --version` e `docker-compose --version`.
+
+## Passo a Passo de Execução
+
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/tiagogadotti/desafio-votacao-fullstack
+   cd desafio-votacao-fullstack
+   ```
+
+2. Construa e inicie os containers usando Docker Compose:
+   ```sh
+   docker-compose up --build
+   ```
+
+3. Aguarde até que todos os serviços estejam iniciados. O front-end Angular estará disponível na porta 80, o back-end Spring Boot na porta 8080, e o MySQL na porta 3307.
+
+4. Acesse a aplicação no seu navegador:
+   - Aplicação: [http://localhost](http://localhost)
+   - Swagger UI: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+## URLs Importantes
+
+- **Aplicação**: [http://localhost](http://localhost)
+- **Swagger UI**: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+### Notas
+
+- Certifique-se de que as portas 80, 8080 e 3307 estejam livres no seu sistema.
+- Para encerrar os containers, use `Ctrl + C` no terminal onde o `docker-compose up` foi executado ou, em outro terminal, execute:
+  ```sh
+  docker-compose down
+  ```
+
+
 # Votação
 
 ## Objetivo
