@@ -1,5 +1,4 @@
-### README
-# Desafio Votação
+# Instruções para execução
 
 Este projeto é uma aplicação de votação com front-end em Angular, back-end em Spring Boot e banco de dados MySQL, orquestrados pelo Docker Compose.
 
