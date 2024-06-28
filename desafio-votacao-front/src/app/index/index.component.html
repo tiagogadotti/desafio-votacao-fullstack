@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Bem vindo ao aplicativo de votação!</h1>
+
+  <p>Instruções:</p>
+
+  <ol>
+    <li>Comece cadastrando associados no menu <button mat-button [routerLink]="['/associados']">Associados</button>
+      <ul>
+        <li>O CPF precisa ser válido para funcionar.</li>
+        <li>Clique no botão CPF para saber se o CPF é válido e apto para votar.</li>
+        <li>Clique no botão Gerar CPF para gerar um CPF válido.</li>
+        <li>Ao salvar o associado, ele aleatoriamente atribuirá o status de apto para votar ou não.</li>
+      </ul>
+    </li>
+    <li>Depois você poderá cadastrar pautas no menu <button mat-button [routerLink]="['/pautas']">Pautas</button>
+      <ul>
+        <li>Ao iniciar a sessão de votação, defina quantos minutos ela ficará aberta.</li>
+        <li>Em seguida, proceda a declarar os votos. Restrições:
+          <ul>
+            <li>Um associado só pode votar uma vez por sessão.</li>
+            <li>O associado precisa ser apto para votar.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</div>

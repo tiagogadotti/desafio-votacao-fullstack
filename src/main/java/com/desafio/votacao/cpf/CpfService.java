@@ -1,19 +1,13 @@
 package com.desafio.votacao.cpf;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
-import java.util.InputMismatchException;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 @Service
 public class CpfService {
 
-    private static int TAMANHO_CPF = 11;
-
-    public Map<String, String> ableToVote(String cpf) {
+    public Map<String, String> ableToVote() {
         Map<String, String> statusCPF = new HashMap<>();
         if (Math.random() > 0.3) {
             statusCPF.put("status", "ABLE_TO_VOTE");
@@ -24,22 +18,22 @@ public class CpfService {
     }
 
     public boolean validar(String numero) {
-        numero = numero.replaceAll("[^0-9]", "");
-
-        System.out.println(numero);
-        if (numero == null || numero.length() != TAMANHO_CPF) {
+        if (numero == null){
             return false;
         }
+        numero = numero.replaceAll("[^0-9]", "");
+        int tamanhoCpd = 11;
+        if (numero.length() != tamanhoCpd){
+            return false;
+        }
+
         if (!numerosDiferentes(numero)) {
             return false;
         }
         int dv1 = calcularDigitoVerificador(numero, 9, 10);
         int dv2 = calcularDigitoVerificador(numero, 10, 11);
 
-        if (dv1 != numero.charAt(9) - '0' || dv2 != numero.charAt(10) - '0') {
-            return false;
-        }
-        return true;
+        return dv1 == numero.charAt(9) - '0' && dv2 == numero.charAt(10) - '0';
     }
 
     private int calcularDigitoVerificador(String numero, int tamanho, int peso) {

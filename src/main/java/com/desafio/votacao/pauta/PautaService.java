@@ -25,7 +25,7 @@ public class PautaService {
     }
 
     public Pauta findById(Long id) {
-        return pautaRepository.findById(id).get();
+        return pautaRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     public Pauta save(Pauta pauta) {
@@ -37,7 +37,6 @@ public class PautaService {
     }
 
     public List<PautaInfoDTO> findAllInfo(){
-        System.out.println("Chamou!");
         List<Pauta> pautas = pautaRepository.findAll();
         List<PautaInfoDTO> pautaInfoDTOS = new ArrayList<>();
         pautas.forEach(pauta -> {
@@ -56,8 +55,6 @@ public class PautaService {
             }catch (Exception ignored) {}
             pautaInfoDTOS.add(pautaInfoDTO);
         });
-        System.out.println("saiu");
-        System.out.println(pautaInfoDTOS);
         return pautaInfoDTOS;
     }
 }

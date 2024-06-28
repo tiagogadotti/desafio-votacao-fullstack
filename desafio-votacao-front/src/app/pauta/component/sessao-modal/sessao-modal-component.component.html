@@ -1,8 +1,9 @@
 <h1 mat-dialog-title>Iniciar Sessão</h1>
 <div mat-dialog-content>
   <form [formGroup]="form">
+    <label for="duracao">Quantos minutos ficará aberta? </label>
     <mat-form-field>
-      <input matInput placeholder="Duração (minutos)" formControlName="duracao" type="number" [defaultValue]="1">
+      <input matInput formControlName="duracao" type="number" [defaultValue]="1" id="duracao">
     </mat-form-field>
   </form>
 </div>

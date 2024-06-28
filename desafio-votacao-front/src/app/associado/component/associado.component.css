@@ -12,3 +12,18 @@
 .associado-info {
   margin-bottom: 5px;
 }
+
+/* associados.component.css */
+.apto-para-votar {
+  background-color: green;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.nao-apto-para-votar {
+  background-color: red;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+}

@@ -4,6 +4,6 @@ export interface VotoDTO {
   opcao: Opcao;
 }
 
-enum Opcao{
+export enum Opcao{
   SIM = "SIM",NAO = "NÃO"
 }

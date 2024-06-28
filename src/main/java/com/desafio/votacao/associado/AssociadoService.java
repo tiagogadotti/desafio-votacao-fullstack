@@ -1,8 +1,6 @@
 package com.desafio.votacao.associado;
 
 import com.desafio.votacao.cpf.CpfService;
-import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,11 +18,11 @@ public class AssociadoService {
     }
 
     public Associado findById(Long id) throws NoSuchElementException {
-        return associadoRepository.findById(id).get();
+        return associadoRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     public Associado save(Associado associado) {
-        boolean aptoParaVotar = cpfService.ableToVote(associado.getCpf()).get("status").equals("ABLE_TO_VOTE");
+        boolean aptoParaVotar = cpfService.ableToVote().get("status").equals("ABLE_TO_VOTE");
         associado.setAptoParaVotar(aptoParaVotar);
         if (!cpfService.validar(associado.getCpf())){
             throw new IllegalArgumentException("CPF inválido");

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AssociadoService} from "../services/associado.service";
 import {MatDialog} from "@angular/material/dialog";
-import {NgForOf} from "@angular/common";
+import {NgClass, NgForOf} from "@angular/common";
 import {AssociadoModalComponent} from "./associado-modal/associado-modal.component";
 import {MatButton} from "@angular/material/button";
 import {Associado} from "../Associado";
@@ -12,7 +12,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   standalone: true,
   imports: [
     NgForOf,
-    MatButton
+    MatButton,
+    NgClass
   ],
   templateUrl: './associado.component.html',
   styleUrl: './associado.component.css'

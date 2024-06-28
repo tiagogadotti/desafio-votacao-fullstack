@@ -6,7 +6,11 @@
       <div class="associado-info"><strong>ID:</strong> {{ associado.id }}</div>
       <div class="associado-info"><strong>Nome:</strong> {{ associado.nome }}</div>
       <div class="associado-info"><strong>CPF:</strong> {{ associado.cpf }}</div>
-      <div class="associado-info"><strong>Apto para Votar:</strong> {{ associado.aptoParaVotar ? 'Sim' : 'Não' }}</div>
+      <div class="associado-info"><span class="fw-bold">Apto para Votar: </span>
+        <span [ngClass]="{ 'apto-para-votar': associado.aptoParaVotar, 'nao-apto-para-votar': !associado.aptoParaVotar }">
+          {{ associado.aptoParaVotar ? 'Sim' : 'Não' }}
+        </span>
+      </div>
     </div>
   </div>
 </div>

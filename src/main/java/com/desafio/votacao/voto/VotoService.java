@@ -1,9 +1,7 @@
 package com.desafio.votacao.voto;
 
 import com.desafio.votacao.associado.Associado;
-import com.desafio.votacao.associado.AssociadoRepository;
 import com.desafio.votacao.sessao.Sessao;
-import com.desafio.votacao.sessao.SessaoRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,7 +11,7 @@ import java.util.List;
 public class VotoService {
 
     private final VotoRepository votoRepository;
-    public VotoService(VotoRepository votoRepository, SessaoRepository sessaoRepository, AssociadoRepository associadoRepository) {
+    public VotoService(VotoRepository votoRepository) {
         this.votoRepository = votoRepository;
     }
 

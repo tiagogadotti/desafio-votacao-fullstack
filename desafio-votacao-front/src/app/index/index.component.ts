@@ -1,0 +1,17 @@
+import { Component } from '@angular/core';
+import {MatButton} from "@angular/material/button";
+import {RouterLink} from "@angular/router";
+
+@Component({
+  selector: 'app-index',
+  standalone: true,
+  imports: [
+    MatButton,
+    RouterLink
+  ],
+  templateUrl: './index.component.html',
+  styleUrl: './index.component.css'
+})
+export class IndexComponent {
+
+}
