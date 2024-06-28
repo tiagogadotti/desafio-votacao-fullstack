@@ -1,9 +1,6 @@
 package com.desafio.votacao.associado;
 
-import com.desafio.votacao.voto.Voto;
 import jakarta.persistence.*;
-
-import java.util.List;
 import java.util.Objects;
 
 @Entity

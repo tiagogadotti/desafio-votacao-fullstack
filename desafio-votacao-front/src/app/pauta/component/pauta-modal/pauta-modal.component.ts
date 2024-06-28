@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatDialogActions, MatDialogContent, MatDialogRef} from "@angular/material/dialog";
+import {MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle} from "@angular/material/dialog";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatInput} from "@angular/material/input";
@@ -16,7 +16,8 @@ import {PautaDTO} from "../../PautaDTO";
     MatInput,
     MatDialogActions,
     MatButton,
-    MatLabel
+    MatLabel,
+    MatDialogTitle
   ],
   templateUrl: './pauta-modal.component.html',
   styleUrl: './pauta-modal.component.css'

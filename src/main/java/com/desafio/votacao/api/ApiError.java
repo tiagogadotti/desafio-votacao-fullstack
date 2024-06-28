@@ -1,7 +1,6 @@
 package com.desafio.votacao.api;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
 public class ApiError {
 

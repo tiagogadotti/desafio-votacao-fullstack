@@ -1,9 +1,6 @@
 package com.desafio.votacao.voto;
 
 import com.desafio.votacao.associado.AssociadoService;
-import com.desafio.votacao.pauta.PautaService;
-import com.desafio.votacao.sessao.Sessao;
-import com.desafio.votacao.sessao.SessaoDTO;
 import com.desafio.votacao.sessao.SessaoService;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +9,10 @@ import java.util.NoSuchElementException;
 @Service
 public class VotoMapper {
 
-    private final VotoService votoService;
     private final AssociadoService associadoService;
     private final SessaoService sessaoService;
 
-    public VotoMapper(VotoService votoService, AssociadoService associadoService, SessaoService sessaoService) {
-        this.votoService = votoService;
+    public VotoMapper(AssociadoService associadoService, SessaoService sessaoService) {
         this.associadoService = associadoService;
         this.sessaoService = sessaoService;
     }

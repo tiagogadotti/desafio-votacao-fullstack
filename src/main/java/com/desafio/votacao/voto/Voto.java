@@ -1,9 +1,7 @@
 package com.desafio.votacao.voto;
 
 import com.desafio.votacao.associado.Associado;
-import com.desafio.votacao.pauta.Pauta;
 import com.desafio.votacao.sessao.Sessao;
-import com.fasterxml.jackson.databind.annotation.EnumNaming;
 import jakarta.persistence.*;
 
 import java.util.Objects;

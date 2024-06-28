@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, switchAll, switchMap} from "rxjs";
+import {Observable, switchMap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {BASE_URL} from "../../config/constants";
 import {PautaDTO} from "../PautaDTO";

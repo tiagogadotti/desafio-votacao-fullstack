@@ -1,14 +1,13 @@
 .mat-card {
-  border: 1px solid black; /* Adiciona um contorno preto */
-  margin-bottom: 20px; /* Adiciona espaço abaixo de cada card */
-  margin: 10px;
+  border: 1px solid black;
+  margin-bottom: 20px;
 }
 .pauta-title {
-  margin-left: 16px; /* Ajusta a margem esquerda do título */
+  margin-left: 16px;
 }
 
 .pauta-descricao {
-  word-wrap: break-word; /* Quebra de linha para descrições longas */
+  word-wrap: break-word;
 }
 
 .pauta-status {

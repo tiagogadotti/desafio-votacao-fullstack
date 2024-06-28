@@ -1,7 +1,6 @@
 package com.desafio.votacao.voto;
 
 import com.desafio.votacao.api.ApiError;
-import com.desafio.votacao.sessao.SessaoController;
 import org.hibernate.dialect.lock.OptimisticEntityLockException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +28,6 @@ public class VotoExceptionHandler {
     @ExceptionHandler(VotoException.class)
     public ResponseEntity<ApiError> handleIllegalArgumentException(VotoException ex, WebRequest request) {
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST,  ex.getMessage());
-        ex.printStackTrace();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiError);
     }
 

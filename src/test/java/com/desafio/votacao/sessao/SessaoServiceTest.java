@@ -25,11 +25,6 @@ class SessaoServiceTest {
     @InjectMocks
     private SessaoService sessaoService;
 
-    @BeforeEach
-    public void setUp() {
-        // MockitoAnnotations.openMocks(this); // Não é necessário com @ExtendWith(MockitoExtension.class)
-    }
-
     @Test
     void deveEncontrarSessaoPorId() {
         Sessao sessao = new Sessao();

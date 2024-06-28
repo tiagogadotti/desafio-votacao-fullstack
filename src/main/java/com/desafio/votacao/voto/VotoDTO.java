@@ -1,7 +1,5 @@
 package com.desafio.votacao.voto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class VotoDTO {
     private Long associadoId;
     private Long sessaoId;
